@@ -1,0 +1,40 @@
+#define HEADIOPIN 13
+#define TAILIOPIN 12
+#define PAUSE 3000
+#define REST 2000
+
+int head = HEADIOPIN;
+int tail = TAILIOPIN;
+long randomNumber = 0L; //use L to tell compiler it's a long data type
+not an int
+
+
+// the setup routine runs once when you press reset:
+void setup() {
+  // initialize the digital pin as an output.
+pinMode(head,OUTPUT);
+pinMode(tail,OUTPUT);
+randomSeed()(analogRead(0));
+
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+  randomNumber = generateRandomNumber();
+  digitalWrite(headLOW);
+  digitalWrite(tailLOW);
+  delay(PAUSE - REST);
+  if(randomNumber%2==1) {
+  digitalWrite(led, HIGH);
+  delay(1000);               // wait for a second
+  digitalWrite(head,HIGH);
+  } else {
+  digitalWrite(tail, HIGH);
+  }
+  delay(PAUSE);
+}
+
+long generateRandomNumber()
+{
+  return random(0, 1000000);
+}
